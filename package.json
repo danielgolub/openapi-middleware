@@ -1,6 +1,6 @@
 {
   "name": "openapi-middleware",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Swagger middleware for common api frameworks (pre-release version!)",
   "main": "index.js",
   "type": "module",
