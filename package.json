@@ -7,6 +7,7 @@
   "scripts": {
     "test": "DEBUG=openapi* mocha tests/**/*.spec.js --exit",
     "coverage": "c8 --100 --check-coverage -r text -r json-summary npm run test",
+    "coveralls": "c8 --100 --check-coverage -r html -r text-lcov npm run test | coveralls",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
   },
@@ -19,6 +20,7 @@
   "devDependencies": {
     "body-parser": "^1.20.2",
     "c8": "^7.13.0",
+    "coveralls": "^3.1.1",
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
