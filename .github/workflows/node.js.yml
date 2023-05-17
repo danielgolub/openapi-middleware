@@ -29,8 +29,5 @@ jobs:
     - run: npm i
     - run: npm run lint
     - run: npm run coverage
-    - name: Run codacy-coverage-reporter
-      uses: codacy/codacy-coverage-reporter-action@v1
-      with:
-        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        coverage-reports: coverage/lcov.info
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
