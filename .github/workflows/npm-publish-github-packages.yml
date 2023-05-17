@@ -33,9 +33,9 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: npm i
       - name: Configure npm
-          run: |
-            echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-            cat .npmrc
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+          cat .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: npm publish
