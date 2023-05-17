@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: npm run lint
-    - run: npm run coveralls
+    - run: npm run coverage
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
