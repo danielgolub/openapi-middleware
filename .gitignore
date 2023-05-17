@@ -1,0 +1,14 @@
+**/node_modules/
+**/npm-debug.log
+
+coverage/
+typings/
+.settings/
+.vscode/
+.idea
+.nyc_output
+
+.projectile
+.tern-project
+.DS_Store
+jsconfig.json

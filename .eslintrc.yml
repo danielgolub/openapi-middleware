@@ -1,0 +1,20 @@
+env:
+  browser: true
+  es2021: true
+  mocha: true
+extends: airbnb-base
+overrides:
+  - files:
+      - "test/*.js"
+      - "test/**/*.js"
+      - "test/**/**/*.js"
+    rules:
+      no-console: off
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  max-len:
+    - 1
+    - 200
+  import/extensions: off
