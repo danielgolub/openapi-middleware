@@ -34,6 +34,9 @@ describe('integration: Express', () => {
         greetingCreate,
         greetingGuest,
       },
+      securitySchemes: {
+        basicAuth: () => {},
+      },
     };
     new ExpressMiddleware(config)
       .on('ready', (router) => {
@@ -81,6 +84,7 @@ describe('integration: Express', () => {
     sinon.assert.calledOnce(greetingGuest);
     assert.deepEqual(body, {});
   });
+
   it('should return 404 on unknown path', async () => {
     await supertest(app)
       .get('/unknown')
@@ -110,6 +114,19 @@ describe('integration: Express', () => {
         .on('error', (error) => {
           assert.ok(error instanceof MiddlewareError);
           done();
+        });
+    });
+    it('securitySchemes config is not provided', (done) => {
+      new ExpressMiddleware({ definition: getOpenAPIDoc(), controllers: {} })
+        .on('ready', () => {
+          done(new Error('should not been started'));
+        })
+        .on('error', (error) => {
+          if (error instanceof MiddlewareError && error.message === 'middleware init failure - could not setup endpoint because security definition was invalid') {
+            return done();
+          }
+
+          return done(new Error('unknown error received'));
         });
     });
   });

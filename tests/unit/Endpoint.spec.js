@@ -1,4 +1,4 @@
-import { fake } from 'sinon';
+import sinon, { fake } from 'sinon';
 import { strict as assert } from 'node:assert';
 import Endpoint from '../../lib/Endpoint.js';
 import { getOpenAPIDoc } from '../helpers/parser.js';
@@ -8,17 +8,31 @@ import ParameterError from '../../lib/errors/ParameterErrors.js';
 describe('unit: Endpoint', () => {
   let endpoint;
   let controllerFunction;
+  let securityCallbacks;
+  let securitySchemes;
+  let getDefinition;
 
   beforeEach(() => {
-    const { paths: { '/greeting/:pathName': { post: definition } } } = getOpenAPIDoc();
+    const apiDoc = getOpenAPIDoc();
+    const {
+      paths: { '/greeting/:pathName': { post: postDefinition } },
+    } = apiDoc;
+    ({
+      paths: { '/greeting': { get: getDefinition } },
+      securitySchemes,
+    } = apiDoc);
     controllerFunction = fake();
-    endpoint = new Endpoint('/greeting', 'post', definition, controllerFunction);
+    securityCallbacks = {
+      basicAuth: sinon.fake.resolves(),
+    };
+    endpoint = new Endpoint(securitySchemes, securityCallbacks, '/greeting', 'post', postDefinition, controllerFunction);
+    sinon.spy(endpoint.paramValidator, 'test');
   });
 
   it('should throw in testing parameter', () => {
     assert.throws(() => endpoint.test({
       pathName: 123,
-    }, {
+    }, {}, {
       qsName: 123,
     }, 'application/json', {
       bodyName: 123,
@@ -49,7 +63,7 @@ describe('unit: Endpoint', () => {
   it('should throw if content type is incorrect', () => {
     assert.throws(() => endpoint.test({
       pathName: 123,
-    }, {
+    }, {}, {
       qsName: 123,
     }, 'text/plain', {
       bodyName: 123,
@@ -80,10 +94,31 @@ describe('unit: Endpoint', () => {
   it('should not throw in testing parameter', () => {
     endpoint.test({
       pathName: '123',
-    }, {
+    }, {}, {
       qsName: '123',
     }, 'application/json', {
       bodyName: '123',
     });
+    sinon.assert.calledOnce(endpoint.paramValidator.test);
+  });
+
+  it('should be able to pass through security validation', () => {
+    endpoint = new Endpoint(securitySchemes, securityCallbacks, '/greeting', 'get', getDefinition, controllerFunction);
+    sinon.spy(endpoint.securityValidator, 'test');
+
+    const pathParams = {
+      pathName: '123',
+    };
+    const security = {
+      basicAuth: () => {},
+    };
+    const query = {
+      qsName: '123',
+    };
+
+    endpoint.test(pathParams, security, query, 'application/json', {
+      bodyName: '123',
+    });
+    sinon.assert.calledOnce(endpoint.securityValidator.test);
   });
 });
