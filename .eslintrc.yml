@@ -18,3 +18,4 @@ rules:
     - 1
     - 200
   import/extensions: off
+  no-await-in-loop: off
