@@ -1,5 +1,7 @@
-## openapi-middleware
-This is a wrapper for express that turns an openapi 3.0 document into a working api server. 
+<p align="center"><img src="https://user-images.githubusercontent.com/109659/40094839-2bc8f2ee-5897-11e8-8092-583c26e4d0df.png" width="100" alt="Sequelize logo" /></p>
+<h1 align="center" style="margin-top: 0;"><a href="https://danielgolub.github.io/openapi-middleware">openapi-middleware</a></h1>
+
+This is a wrapper for express that turns an openapi 3.0 document into a working api server.
 It sets up the endpoints, validates inputs, outputs, authentication and more.
 
 [![Node.js CI](https://github.com/danielgolub/openapi-middleware/actions/workflows/node.js.yml/badge.svg)](https://github.com/danielgolub/openapi-middleware/actions/workflows/node.js.yml)
@@ -9,11 +11,21 @@ It sets up the endpoints, validates inputs, outputs, authentication and more.
 [![contributors](https://img.shields.io/github/contributors/danielgolub/openapi-middleware)](https://github.com/danielgolub/openapi-middleware/graphs/contributors)
 [![npm version](https://badgen.net/npm/v/openapi-middleware)](https://www.npmjs.com/package/openapi-middleware)
 
-### :warning: Important: WIP!
+### ⚠️ Important: WIP!
 This is pre-release code that is not stable yet and does not fully meet open api 3.0 standards.
 You're more than welcome to [contribute](./CONTRIBUTING.md) to this repo to increase the velocity of the development effort.
 
-### :computer: Getting Started
+### 📖 Resources
+
+- [Documentation](https://danielgolub.github.io/openapi-middleware)
+  - [module:ExpressMiddleware](https://danielgolub.github.io/openapi-middleware/module-ExpressMiddleware.html)
+    - [ExpressMiddleware.ConfigOptions](https://danielgolub.github.io/openapi-middleware/module-ExpressMiddleware.html#.ConfigOptions)
+  - [module:ParameterValidator](https://danielgolub.github.io/openapi-middleware/module-ParameterValidator.html)
+  - [module:SecurityValidator](https://danielgolub.github.io/openapi-middleware/module-SecurityValidator.html)
+  - [module:Endpoint](https://danielgolub.github.io/openapi-middleware/module-Endpoint.html)
+- [Changelog](https://github.com/danielgolub/openapi-middleware/releases)
+
+### 💻 Getting Started
 You can install this fork via npm:
 ```bash
 npm i openapi-middleware
