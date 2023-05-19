@@ -1,9 +1,24 @@
 {
   "name": "openapi-middleware",
-  "version": "0.2.0",
-  "description": "Swagger middleware for common api frameworks (pre-release version!)",
+  "version": "0.2.1",
+  "description": "OpenAPI middleware for common api frameworks (pre-release version!)",
   "main": "index.js",
   "type": "module",
+  "keywords": [
+    "api",
+    "openapi",
+    "swagger",
+    "express",
+    "openapi-3"
+  ],
+  "bugs": {
+    "url": "https://github.com/danielgolub/openapi-middleware/issues"
+  },
+  "homepage": "https://danielgolub.github.io/openapi-middleware/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danielgolub/openapi-middleware.git"
+  },
   "scripts": {
     "test": "DEBUG=openapi* mocha tests/**/*.spec.js --exit",
     "coverage": "c8 --100 --check-coverage --reporter=lcov npm run test",
