@@ -43,6 +43,12 @@ import {resolve} from "path";
 const config = {
   definition: resolve('./tests/helpers/openapi-sample-v3.yaml'),
   controllers: resolve('./tests/helpers/controllers'),
+  securitySchemes: {
+    basicAuth: (req, res, next) => {
+      // sample security callback for basicAuth security scheme
+      next();
+    }
+  },
 };
 
 const app = express();
