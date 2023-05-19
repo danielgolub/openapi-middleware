@@ -16,7 +16,7 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           output_dir: ./docs
-          config_file: jsconf.json
+          config_file: jsdoc.json
           template: clean-jsdoc-theme
 
       - name: Deploy
