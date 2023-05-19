@@ -9,7 +9,7 @@
     "coverage": "c8 --100 --check-coverage --reporter=lcov npm run test",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "docs": "jsdoc --configure jsdoc.json -d docs lib/*.js lib/**/*.js"
+    "docs": "jsdoc --configure jsdoc.json --template node_modules/clean-jsdoc-theme"
   },
   "author": {
     "name": "Daniel Golub",

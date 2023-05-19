@@ -1,7 +1,12 @@
 {
   "sourceType": "module",
+  "source": {
+    "include": ["lib", "index.js"],
+    "includePattern": ".+\\.js(doc|x)?$"
+  },
   "opts": {
-    "template": "node_modules/clean-jsdoc-theme",
+    "destination": "./docs/",
+    "recurse": true,
     "readme": "./README.md",
     "theme_opts": {
       "homepageTitle": "openapi-middleware - api docs",
