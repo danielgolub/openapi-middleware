@@ -1,6 +1,6 @@
 import { strict as assert } from 'node:assert';
 import ParameterValidator from '../../lib/ParameterValidator.js';
-import ParameterError from '../../lib/errors/ParameterErrors.js';
+import ParameterError from '../../lib/errors/ParameterError.js';
 
 describe('unit: ParameterValidator', () => {
   describe('check: required or optional', () => {
