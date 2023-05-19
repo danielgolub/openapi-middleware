@@ -1,0 +1,18 @@
+{
+  "sourceType": "module",
+  "opts": {
+    "template": "node_modules/clean-jsdoc-theme",
+    "readme": "./README.md",
+    "theme_opts": {
+      "homepageTitle": "openapi-middleware - api docs",
+      "title": "<div class=\"logo\"><a href=\"./index.html\"><img src=\"https://user-images.githubusercontent.com/109659/40094839-2bc8f2ee-5897-11e8-8092-583c26e4d0df.png\"></a> <h1>openapi-middleware</h1></div>",
+      "sections": ["Modules", "Events", "Global"],
+      "include_css": ["./jsdoc.css"],
+      "default_theme": "light"
+    },
+    "markdown": {
+      "hardwrap": false,
+      "idInHeadings": true
+    }
+  }
+}

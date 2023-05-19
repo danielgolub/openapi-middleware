@@ -3,6 +3,8 @@ env:
   es2021: true
   mocha: true
 extends: airbnb-base
+ignorePatterns:
+  - docs/*
 overrides:
   - files:
       - "test/*.js"
