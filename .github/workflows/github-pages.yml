@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - docs-add-jsdoc-integration
+
 permissions:
   contents: write
 
