@@ -2,8 +2,7 @@ import sinon, { fake } from 'sinon';
 import { strict as assert } from 'node:assert';
 import Endpoint from '../../lib/Endpoint.js';
 import { getOpenAPIDoc } from '../helpers/parser.js';
-import EndpointError from '../../lib/errors/EndpointErrors.js';
-import ParameterError from '../../lib/errors/ParameterErrors.js';
+import ParameterError from '../../lib/errors/ParameterError.js';
 
 describe('unit: Endpoint', () => {
   let endpoint;
@@ -36,27 +35,25 @@ describe('unit: Endpoint', () => {
       qsName: 123,
     }, 'application/json', {
       bodyName: 123,
-    }), new EndpointError('INPUT_VALIDATION_FAILED', [
-      new ParameterError('INPUT_VALIDATION_FAILED', [
-        {
-          code: null,
-          reason: 'type',
-          message: 'must be string, but is number',
-          property: '@.path.pathName',
-        },
-        {
-          code: null,
-          reason: 'type',
-          message: 'must be string, but is number',
-          property: '@.qs.qsName',
-        },
-        {
-          code: null,
-          reason: 'type',
-          message: 'must be string, but is number',
-          property: '@.requestBody["application/json"].bodyName',
-        },
-      ]),
+    }), new ParameterError('INPUT_VALIDATION_FAILED', [
+      {
+        code: null,
+        reason: 'type',
+        message: 'must be string, but is number',
+        property: '@.path.pathName',
+      },
+      {
+        code: null,
+        reason: 'type',
+        message: 'must be string, but is number',
+        property: '@.qs.qsName',
+      },
+      {
+        code: null,
+        reason: 'type',
+        message: 'must be string, but is number',
+        property: '@.requestBody["application/json"].bodyName',
+      },
     ]));
   });
 
@@ -67,27 +64,25 @@ describe('unit: Endpoint', () => {
       qsName: 123,
     }, 'text/plain', {
       bodyName: 123,
-    }), new EndpointError('INPUT_VALIDATION_FAILED', [
-      new ParameterError('INPUT_VALIDATION_FAILED', [
-        {
-          code: null,
-          reason: 'type',
-          message: 'must be string, but is number',
-          property: '@.path.pathName',
-        },
-        {
-          code: null,
-          reason: 'type',
-          message: 'must be string, but is number',
-          property: '@.qs.qsName',
-        },
-        {
-          code: null,
-          reason: 'strict',
-          message: 'request body content-type invalid',
-          property: '@.requestBody',
-        },
-      ]),
+    }), new ParameterError('INPUT_VALIDATION_FAILED', [
+      {
+        code: null,
+        reason: 'type',
+        message: 'must be string, but is number',
+        property: '@.path.pathName',
+      },
+      {
+        code: null,
+        reason: 'type',
+        message: 'must be string, but is number',
+        property: '@.qs.qsName',
+      },
+      {
+        code: null,
+        reason: 'strict',
+        message: 'request body content-type invalid',
+        property: '@.requestBody',
+      },
     ]));
   });
 
