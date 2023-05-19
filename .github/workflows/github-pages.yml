@@ -18,6 +18,7 @@ jobs:
         run: |
           npm i
           npm run docs
+          echo '' > docs/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
