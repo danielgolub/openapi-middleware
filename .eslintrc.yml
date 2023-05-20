@@ -12,12 +12,9 @@ overrides:
       - "test/**/**/*.js"
     rules:
       no-console: off
-parser: "@babel/eslint-parser"
 parserOptions:
-  requireConfigFile: false
-  babelOptions:
-    plugins:
-      - '@babel/plugin-syntax-import-assertions'
+  ecmaVersion: latest
+  sourceType: module
 rules:
   max-len:
     - 1
