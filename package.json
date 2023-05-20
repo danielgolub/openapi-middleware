@@ -1,6 +1,6 @@
 {
   "name": "openapi-middleware",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "OpenAPI middleware for common api frameworks (pre-release version!)",
   "main": "index.js",
   "type": "module",
