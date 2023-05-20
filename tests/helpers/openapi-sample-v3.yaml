@@ -22,8 +22,20 @@ paths:
             application/json:
               schema:
                 type: object
-                responseText:
-                  type: string
+                required:
+                  - responseText
+                properties:
+                  responseText:
+                    type: string
+                  responseDetails:
+                    type: object
+                    required:
+                      - text
+                    properties:
+                      text:
+                        type: string
+    put:
+      operationId: greetingNoResponse
 
   /greeting/:pathName:
     get:
@@ -52,8 +64,9 @@ paths:
             application/json:
               schema:
                 type: object
-                responseText:
-                  type: string
+                properties:
+                  responseText:
+                    type: string
     post:
       summary: Returns a greeting
       operationId: greetingCreate
@@ -91,11 +104,17 @@ paths:
             application/json:
               schema:
                 type: object
-                responseText:
-                  type: string
+                required:
+                  - responseText
+                properties:
+                  responseText:
+                    type: string
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error"
+                type: object
+                properties:
+                  responseText:
+                    type: string

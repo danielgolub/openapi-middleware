@@ -49,6 +49,7 @@ const config = {
       next();
     }
   },
+  enforceResponseValidation: false,
 };
 
 const app = express();
@@ -60,7 +61,10 @@ new openapiMiddleware.ExpressMiddleware(config)
     app.use(router);
     app.listen(2020, () => console.log('server is running!'));
   })
+  .on('invalidResponse', (error) => {
+    console.error('silently failed on invalid response', error);
+  })
   .on('error', (error) => {
-    console.error(error);
+    console.error('startup error', error);
   });
 ```
