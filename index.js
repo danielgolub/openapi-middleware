@@ -6,6 +6,7 @@ import SecurityError from './lib/errors/SecurityError.js';
 import MiddlewareError from './lib/errors/MiddlewareError.js';
 import SecurityValidator from './lib/SecurityValidator.js';
 import ResponseValidator from './lib/ResponseValidator.js';
+import ResponseError from './lib/errors/ResponseError.js';
 
 /**
  * @module
@@ -17,11 +18,13 @@ export default {
    * @property {module:ParameterError} ParameterError input validator error
    * @property {module:SecurityError} SecurityError security validator error
    * @property {module:MiddlewareError} MiddlewareError express error
+   * @property {module:ResponseError} ResponseError response validator error
    */
   errors: {
     ParameterError,
     SecurityError,
     MiddlewareError,
+    ResponseError,
   },
 
   /**
