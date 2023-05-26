@@ -5,7 +5,7 @@ import ParameterError from './lib/errors/ParameterError.js';
 import SecurityError from './lib/errors/SecurityError.js';
 import MiddlewareError from './lib/errors/MiddlewareError.js';
 import SecurityValidator from './lib/SecurityValidator.js';
-import ResponseValidator from "./lib/ResponseValidator.js";
+import ResponseValidator from './lib/ResponseValidator.js';
 
 /**
  * @module
