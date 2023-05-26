@@ -7,6 +7,8 @@ import ExpressMiddleware from '../../lib/integrators/ExpressMiddleware.js';
 import SecurityError from '../../lib/errors/SecurityError.js';
 import MiddlewareError from '../../lib/errors/MiddlewareError.js';
 import SecurityValidator from '../../lib/SecurityValidator.js';
+import ResponseValidator from '../../lib/ResponseValidator.js';
+import ResponseError from '../../lib/errors/ResponseError.js';
 
 describe('unit: index', () => {
   it('should expose the correct package output', () => {
@@ -15,11 +17,13 @@ describe('unit: index', () => {
         ParameterError,
         SecurityError,
         MiddlewareError,
+        ResponseError,
       },
       modules: {
         Endpoint,
         ParameterValidator,
         SecurityValidator,
+        ResponseValidator,
       },
       ExpressMiddleware,
     });

@@ -20,10 +20,12 @@ You're more than welcome to [contribute](./CONTRIBUTING.md) to this repo to incr
 ### 📖 Resources
 
 - [Documentation](https://danielgolub.github.io/openapi-middleware)
+  - [module:index](https://danielgolub.github.io/openapi-middleware/module-index.html)
   - [module:ExpressMiddleware](https://danielgolub.github.io/openapi-middleware/module-ExpressMiddleware.html)
     - [ExpressMiddleware.ConfigOptions](https://danielgolub.github.io/openapi-middleware/module-ExpressMiddleware.html#.ConfigOptions)
   - [module:ParameterValidator](https://danielgolub.github.io/openapi-middleware/module-ParameterValidator.html)
   - [module:SecurityValidator](https://danielgolub.github.io/openapi-middleware/module-SecurityValidator.html)
+  - [module:ResponseValidator](https://danielgolub.github.io/openapi-middleware/module-ResponseValidator.html)
   - [module:Endpoint](https://danielgolub.github.io/openapi-middleware/module-Endpoint.html)
 - [Changelog](https://github.com/danielgolub/openapi-middleware/releases)
 
