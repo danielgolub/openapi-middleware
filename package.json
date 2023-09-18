@@ -44,7 +44,7 @@
     "eslint-plugin-import": "^2.27.5",
     "jsdoc": "^4.0.2",
     "mocha": "^10.2.0",
-    "sinon": "^15.0.4",
+    "sinon": "^16.0.0",
     "supertest": "^6.3.3"
   },
   "dependencies": {
